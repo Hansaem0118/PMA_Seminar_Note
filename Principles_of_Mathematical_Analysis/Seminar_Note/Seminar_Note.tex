@@ -442,12 +442,66 @@ and
 \]
 Hence, for every $t_1 \leq x$ and $t_2 \leq y$, 
 \[
-b^{t_1+t_2} = b^{t_1}b^{t_2} \leq b^xb^y,
+b^{t_1+t_2} = b^{t_1}b^{t_2} \leq b^xb^y.
+\]
+
+Now, to obtain
+\begin{equation}\label{ineq:Ch.1_ex2_(d)_2}
+b^{x+y} = \sup B(x+y) \leq b^xb^y
+\end{equation}
+from above inequality, we need the following statement:
+\[
+b^x=\sup \left\{b^t \mid t \in \Q, t<x\right\}.
+\]
+
+Let us prove it. Notice that
+\[
+b^n-1=(b-1)(b^{n-1}+ \cdots + 1) \geq n(b-1)
+\]
+for any positive integer $n$. Put $c=b^{1/n}>1$. Then we have
+\[
+b-1 \geq n(b^{1/n}-1).
+\]
+Hence, if $t>1$ and $n>(b-1)/(t-1)$ then
+\[
+\frac{n(b^{1/n}-1)}{t-1} \leq \frac{b-1}{t-1} < n,
 \]
 and it follows that
-\begin{equation}\label{ineq:Ch.1_ex2_(d)_2}
-b^{x+y} = \sup B(x+y) \leq b^xb^y.
-\end{equation}
+\[
+b^{1/n}<t.
+\]
+
+Note that if $t>1$ then $b^{1/n}<t$ for sufficiently large $n$.
+
+Let $B_0(x)=\left\{b^t \mid t \in \Q, t<x\right\}$.
+We need to show that $b^x$ is the supremum of $B_0(x)$. 
+It is clear that $b^x$ is an upper bound of $B_0(x)$.
+Thus, it remains to prove that if $y<b^x$ then $y$ is not an upper bound.
+
+Suppose $0<y<b^x$. Then $b^x/y >1$ and it follows that
+\[
+b^{1/n} <b^x/y
+\]
+for sufficiently large $n$. 
+Hence, we have
+\[
+y<\frac{b^x}{b^{1/n}}<b^x.
+\]
+By the density of rationals, choose a rational $t$ such that $x-(1/n)<t<x$. 
+Since $x<s<t+(1/n)$ for some rational $s$, 
+\[
+b^x \leq b^s <b^{t+(1/n)} = b^tb^{1/n}
+\]
+and
+\[
+y<\frac{b^x}{b^{1/n}}<b^t.
+\]
+Thus, $y$ is not an upper bound of $B_0(x)$ and therefore $b^x = \sup B_0(x)$.
+
+Now, let $t$ be a rational and let $t<x+y$.
+Pick $t_2 \in \Q$ such that $t-x<t_2<y$ and set $t_1=t-t_2$.
+Then for every $t \in \Q$ with $t<x+y$, there are rational $t_1<x$ and $t_2<y$ such that $t=t_1+t_2<x+y$, hence $b^t=b^{t_1+t_2}=b^{t_1}b^{t_2} \leq b^xb^y$.
+Thus, we obtain \eqref{ineq:Ch.1_ex2_(d)_2}.
 
 Combining \eqref{ineq:Ch.1_ex2_(d)_1} and \eqref{ineq:Ch.1_ex2_(d)_2}, we conclude that
 \[
@@ -459,24 +513,38 @@ Prove that no order can be defined in the complex field that turns it into an or
 \end{exercise}
 \begin{proof}
 Suppose to the contrary that there exists an order $<$ on $\C$ which turns $\C$ into an ordered field.
-Let $0$ and $1$ denote the additive and multiplicative identities, respectively. 
-Then $0=(0,0)$ and $1=(1,0)$. 
+Let $\mathbf{0}$ and $\mathbf{1}$ denote the additive and multiplicative identities of the complex field, respectively. 
+Then $\mathbf{0}=(0,0)$ and $\mathbf{1}=(1,0)$. 
 
-Note that $i = (0,1) \neq 0$.
-If $x \neq 0$ then $x^2 > 0$. 
+Note that $i = (0,1) \neq \mathbf{0}$.
+If $x \neq \mathbf{0}$ then $x^2 > \mathbf{0}$. 
 It follows that
 \begin{align*}
-    i^2=(0,1)(0,1)=(-1,0)>0.
+    i^2=(0,1)(0,1)=(-1,0)>\mathbf{0}.
 \end{align*}
-Since $(-1,0)+(1,0)=0$, $(-1,0)$ is the additive inverse of $(1,0)$. 
-Since $1>0$ and if $x>0$ then $-x<0$ in any ordered field, we obtain
+Since $(-1,0)+(1,0)=\mathbf{0}$, $(-1,0)$ is the additive inverse of $(1,0)$. 
+Since $\mathbf{1}>\mathbf{0}$ and if $x>\mathbf{0}$ then $-x<\mathbf{0}$ in any ordered field, we obtain
 \[
-(-1,0)=-(1,0)=-1<0.
+(-1,0)=-(1,0)=-\mathbf{1}<\mathbf{0}.
 \]
 
 This contradicts the Trichotomy Property. 
 \end{proof}
 \section{Basic Topology}
 \subsection{Finite, Countable, and Uncountable Sets}
+We omit this section here.
 \subsection{Metric Spaces}
+\begin{definition}
+A set $X$, whose elements we shall call \emph{points}, is said to be a \emph{metric space} if with any two points $p$ and $q$ of $X$ there is associated a real number $d(p,q)$, called the \emph{distance} from $p$ to $q$, such that
+\begin{enumerate}
+    \item[(a)] $d(p,q)>0$ if $p \neq q$; $d(p,p)=0$;
+    \item[(b)] $d(p,q)=d(q,p)$;
+    \item[(c)] $d(p,q) \leq d(p,r)+d(r,q)$, for any $r \in X$.  
+\end{enumerate}
+
+Any function with these three properties is called a \emph{distance function}, or a \emph{metric}.
+\end{definition}
+\begin{example}
+$\R^k$ is a metric space.
+\end{example}
 \end{document}
