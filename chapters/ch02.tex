@@ -83,3 +83,26 @@ The number $r$ is called the \emph{radius} of $N_r(p)$.
 \item[(j)] $E$ is \emph{dense in $X$} if every point of $X$ is a limit point of $E$, or a point of $E$ (or both).
 \end{enumerate}
 \end{definition}
+
+\begin{theorem}
+    Every neighborhood is an open set.
+\end{theorem}
+
+\begin{proof}
+Suppose there is a neighborhood $N$ of $p$ which contains only a finite number of points of $E$.
+Let $q_1, \ldots , q_n$ be those points of $N \cap E$, which are distinct from $p$, and put
+\[
+r=\min_{1 \leq m \leq n} d(p,q_m) >0 
+\]
+Then $d(p,q_m) \geq r$ for $m=1, \ldots, n$ and hence all the points $q_m$ are not in the neighborhood $N_r(p)$.
+Since 
+\[
+N_r(p) \subset N
+\]
+and hence
+\[
+N_r(p) \cap E \setminus \{p\} \subset N \cap E \setminus \{p\} = \{q_1, \ldots, q_m\} \subset E,
+\]
+$N_r(p)$ contains no element $q \neq p$ in $E$ (notice $N_r(p) \cap E \setminus \{p\}$ is empty).
+Thus, $p$ is not a limit point of $E$. This is a contradiction.
+\end{proof}
