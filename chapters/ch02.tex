@@ -20,14 +20,14 @@ By the \emph{segment} $(a,b)$ we mean the set of all real numbers $x$ such that 
 
 By the \emph{interval} $[a,b]$ we mean the set of all real numbers $x$ such that $a \leq x \leq b$.
 
-Occasilnally we shall also encounter ``half-open intervals'' $[a,b)$ and $(a,b]$; the first consists of all $x$ such that $a \leq x < b$, the second of all $x$ such that $a < x \leq b$.
+Occasionally we shall also encounter ``half-open intervals'' $[a,b)$ and $(a,b]$; the first consists of all $x$ such that $a \leq x < b$, the second of all $x$ such that $a < x \leq b$.
 
 If $a_i<b_i$ for $i=1, \ldots k$, the set of all points $\mathbf{x}=(x_1, \dots , x_k)$ in $\R^k$ whose coordinates satisfy the inequalities $a_i \leq x_i \leq b_i$ ($1 \leq i \leq k$) is called a \emph{k-cell}.
 Thus a 1-cell is an interval, a 2-cell is a rectangle, etc.
 
 If $\mathbf{x} \in \R^k$ and $r>0$, the \emph{open} (or \emph{closed}) \emph{ball} $B$ with center at $\mathbf{x}$ and radius $r$ is defined to be the set of all $\mathbf{y} \in \R^k$ such that $|\mathbf{y}-\mathbf{x}|<r$ (or $|\mathbf{y}-\mathbf{x}| \leq r$).
 
-We call a set $E \subset \R^K$ \emph{convex} if
+We call a set $E \subset \R^k$ \emph{convex} if
 \[
 \lambda\mathbf{x}+(1-\lambda)\mathbf{y} \in E
 \]
@@ -44,12 +44,13 @@ If $|\mathbf{y}-\mathbf{x}|<r$, $|\mathbf{z}-\mathbf{x}|<r$, and $0<\lambda<1$, 
     &\leq \lambda|\mathbf{y}-\mathbf{x}|+(1-\lambda)|\mathbf{z}-\mathbf{x}| \\
     &< \lambda r + (1-\lambda)r = r.
 \end{align*}
-Hence, balls are convex.
+Hence, open balls are convex. 
+The same proof applies to closed balls.
 
 Let $A \subset \R^k$ be a k-cell and let $\mathbf{x},\mathbf{y} \in A$ and $0<\lambda<1$. 
 We write $\mathbf{x}=(x_1, \ldots x_k)$, $\mathbf{y}=(y_1, \ldots, y_k)$ with
 \[
-a_i<b_i \text{ and } \mathbf{x}, \mathbf{y} \in [a_i,b_i] \text{ for } i=1, \ldots, k.
+a_i<b_i \text{ and } x_i, y_i \in [a_i,b_i] \text{ for } i=1, \ldots, k.
 \]
 If $x, y \in [a,b]$ with $a<b$ and $0<\lambda<1$ then
 \[
@@ -76,7 +77,7 @@ The number $r$ is called the \emph{radius} of $N_r(p)$.
 \item[(c)] If $p \in E$ and $p$ is not a limit point of $E$, then $p$ is called an \emph{isolated point} of $E$.
 \item[(d)] $E$ is \emph{closed} if every limit point of $E$ is a point of $E$.
 \item[(e)] A point $p$ is an \emph{interior} point of $E$ if there is a neighborhood $N$ of $p$ such that $N \subset E$.
-\item[(f)] $E$ is \emph{open} if evefy point of $E$ is an interior point of $E$.
+\item[(f)] $E$ is \emph{open} if every point of $E$ is an interior point of $E$.
 \item[(g)] The \emph{complement} of $E$ (denoted by $E^c$) is the set of all points $p \in X$ such that $p \notin E$.
 \item[(h)] $E$ is \emph{perfect} if $E$ is closed and if every point of $E$ is a limit point of $E$.
 \item[(i)] $E$ is \emph{bounded} if there is a real number $M$ and a point $q \in X$ such that $d(p,q)<M$ for all $p \in E$.    
@@ -119,7 +120,7 @@ N_r(p) \subset N
 \]
 and hence
 \[
-N_r(p) \cap E \setminus \{p\} \subset N \cap E \setminus \{p\} = \{q_1, \ldots, q_m\} \subset E,
+N_r(p) \cap E \setminus \{p\} \subset N \cap E \setminus \{p\} = \{q_1, \ldots, q_n\} \subset E,
 \]
 $N_r(p)$ contains no element $q \neq p$ in $E$ (notice $N_r(p) \cap E \setminus \{p\}$ is empty).
 Thus, $p$ is not a limit point of $E$. This is a contradiction.
@@ -163,7 +164,7 @@ Thus $E$ is open.
 Next, suppose $E$ is open. 
 Let $x$ be a limit point of $E^c$.
 Then every neighborhood of $x$ contains a point of $E^c$, hence there is no neighborhood $N$ of $x$ such that $N \subset E$.
-Thus, $x$ is not an interior point of $e$ and therefore $x \notin E$, since $E$ is open.
+Thus, $x$ is not an interior point of $E$ and therefore $x \notin E$, since $E$ is open.
 It follows that if $x$ is a limit point of $E^c$ then $x \notin E$, hence $x \in E^c$.
 Therefore, $E^c$ is closed.
  \end{proof}
@@ -197,7 +198,7 @@ Hence, every $x \in G$ is an interior point of $G$ and it follows that $G$ is op
     &\implies \bigcap_{\alpha}F_{\alpha} \text{ is closed.} \tag*{($\because$ Theorem \ref{thm:open_close_equivalnce})} \\
 \end{align*}
 
-Since Rudin's proof of part (c) and (d) are already explicit, we omit it here.
+Since Rudin's proofs of parts (c) and (d) are already explicit, we omit them here.
 \end{proof}
 \begin{example}
 For each $n \in \N$, define
