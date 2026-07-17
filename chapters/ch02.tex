@@ -174,10 +174,13 @@ Therefore, $E^c$ is closed.
  \end{corollary}
 
  \begin{theorem}\label{thm:topological_space_property}
+    \,
+    \begin{enumerate}
     \item[(a)] For any collection $\{G_{\alpha}\}$ of open sets, $\bigcup_{\alpha}G_{\alpha}$ is open.
     \item[(b)] For any collection  $\{F_{\alpha}\}$ of closed sets, $\bigcap_{\alpha}F_{\alpha}$ is closed.
     \item[(c)] For any finite collection $G_1, \ldots G_n$ of open sets, $\bigcap_{i=1}^nG_i$ is open.
     \item[(d)] For any finite collection $F_1, \ldots, F_n$ of closed sets, $\bigcup_{i=1}^nF_i$ is closed.
+    \end{enumerate}
  \end{theorem}
 \begin{proof}
 Put $G=\bigcup_{\alpha}G_{\alpha}$. Then
@@ -218,12 +221,16 @@ If $X$ is a metric space, if $E \subset X$, and if $E'$ denotes the set of all l
 \end{definition}
 \begin{theorem}
 If $X$ is a metric space and $E \subset X$, then
+\begin{enumerate}
 \item[(a)] $\overline{E}$ is closed,
 \item[(b)] $E=\overline{E}$ if and only if $E$ is closed,
 \item[(c)] $\overline{E} \subset F$ for every closed set $F \subset X$ such that $E \subset F$.   
+\end{enumerate}
 \end{theorem}
 By (a) and (c), $\overline{E}$ is the \emph{smallest} closed subset of $X$ that contains $E$.
 \begin{proof}
+    \,
+\begin{enumerate}
 \item[(a)] If $p \in X$ and $p \notin \overline{E}$ then $p$ is neither a point of $E$ nor a limit point of $E$.
 Since $p$ is not a limit point of $E$, there exists a neighborhood $N$ of $p$ such that for every point $q \in N$, $q=p$ or $q \notin E$.
 If $q=p$ then $q \notin E$, hence every point of $N$ is not in $E$. 
@@ -247,4 +254,5 @@ Therefore, $p$ is a limit point of $F$ and $p \in F'$.
 Let us prove (c) now. 
 Suppose $F \subset X$ is closed and $E \subset F$. 
 Since $E' \subset F'$ and $F' \subset F$, we see that $E' \subset F$, and it follows that $\overline{E}=E \cup E' \subset F$.
+\end{enumerate}
 \end{proof}
