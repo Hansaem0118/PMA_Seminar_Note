@@ -128,7 +128,7 @@ Thus, $p$ is not a limit point of $E$. This is a contradiction.
     A finite point set has no limit points.
  \end{corollary}
 
- \begin{theorem}
+ \begin{theorem}\label{thm:De_Morgan}
 Let $\{E_{\alpha}\}$ be a (finite or infinite) collection of sets $E_{\alpha}$. 
 Then
 \begin{equation}
@@ -151,8 +151,8 @@ Since}
 \end{align*}
 we obtain the reverse. This establishes the theorem.
  \end{proof}
- \begin{theorem}
-    A set $E$ is oopen if and only if its complement is closed.
+ \begin{theorem}\label{thm:open_close_equivalnce}
+    A set $E$ is open if and only if its complement is closed.
  \end{theorem}
  \begin{proof}
 First, suppose $E^c$ is closed. Choose $x \in E$. 
@@ -189,8 +189,12 @@ Put $G=\bigcup_{\alpha}G_{\alpha}$. Then
 \end{align*}
 Hence, every $x \in G$ is an interior point of $G$ and it follows that $G$ is open. 
 
-(b) follows from (a), Theorem 2.22, and Theorem 2.23. We see that
+(b) follows from (a), Theorem \ref{thm:De_Morgan}, and Theorem \ref{thm:open_close_equivalnce}. We see that
 \begin{align*}
-    F_{\alpha} \text{ is closed} &\implies F_{\alpha}^c 
+    F_{\alpha} \text{ is closed} &\implies F_{\alpha}^c \text{ is open.} \tag*{($\because$ Theorem \ref{thm:open_close_equivalnce})} \\
+    &\implies \bigcup_{\alpha}F_{\alpha}^c \text{ is open.} \tag*{($\because$ (a))} \\
+    &\implies \left(\bigcap_{\alpha}F_{\alpha}\right)^c \text{is open.} \tag*{($\because$ Theorem \ref{thm:De_Morgan})}\\
+    &\implies \bigcap_{\alpha}F_{\alpha} \text{ is closed.} \tag*{($\because$ Theorem \ref{thm:open_close_equivalnce})} \\
 \end{align*}
 \end{proof}
+
