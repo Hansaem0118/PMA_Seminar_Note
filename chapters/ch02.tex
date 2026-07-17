@@ -172,7 +172,7 @@ Therefore, $E^c$ is closed.
     A set $F$ is closed if and only if its complement is open.
  \end{corollary}
 
- \begin{theorem} 
+ \begin{theorem}\label{thm:topological_space_property}
     \item[(a)] For any collection $\{G_{\alpha}\}$ of open sets, $\bigcup_{\alpha}G_{\alpha}$ is open.
     \item[(b)] For any collection  $\{F_{\alpha}\}$ of closed sets, $\bigcap_{\alpha}F_{\alpha}$ is closed.
     \item[(c)] For any finite collection $G_1, \ldots G_n$ of open sets, $\bigcap_{i=1}^nG_i$ is open.
@@ -199,4 +199,51 @@ Hence, every $x \in G$ is an interior point of $G$ and it follows that $G$ is op
 
 Since Rudin's proof of part (c) and (d) are already explicit, we omit it here.
 \end{proof}
+\begin{example}
+For each $n \in \N$, define
+\[
+G_n = \left(-\frac{1}{n},\frac{1}{n}\right).
+\]
+Then each $G_n$ is an open subset of $\R^1$, but $\bigcap_{n=1}^{\infty}G_n=\{0\}$ is not.
+Similarly, let $F_n=G_n^c$ for every $n \in \N$. 
+Then each $F_n$ is closed, but $\bigcup_{n=1}^{\infty}F_n=\R^1\setminus\{0\}$ is not.
 
+Thus the intersection (respectively, union) of an infinite collection of open (respectively, closed) sets \emph{need not be} open (respectively, closed).
+Hence the finiteness assumptions in parts (c) and (d) of Theorem \ref{thm:topological_space_property} cannot be omitted.
+\end{example}
+
+\begin{definition}
+If $X$ is a metric space, if $E \subset X$, and if $E'$ denotes the set of all limit points of $E$ in $X$, then the \emph{closure} of $E$ is the set $\overline{E}=E\cup E'$.
+\end{definition}
+\begin{theorem}
+If $X$ is a metric space and $E \subset X$, then
+\item[(a)] $\overline{E}$ is closed,
+\item[(b)] $E=\overline{E}$ if and only if $E$ is closed,
+\item[(c)] $\overline{E} \subset F$ for every closed set $F \subset X$ such that $E \subset F$.   
+\end{theorem}
+By (a) and (c), $\overline{E}$ is the \emph{smallest} closed subset of $X$ that contains $E$.
+\begin{proof}
+\item[(a)] If $p \in X$ and $p \notin \overline{E}$ then $p$ is neither a point of $E$ nor a limit point of $E$.
+Since $p$ is not a limit point of $E$, there exists a neighborhood $N$ of $p$ such that for every point $q \in N$, $q=p$ or $q \notin E$.
+If $q=p$ then $q \notin E$, hence every point of $N$ is not in $E$. 
+Therefore $N$ does not intersect $E$.
+
+Suppose $N$ contains a limit point $l$ of $E$. Since $N$ is open and $l \in N$, there exists a neighborhood $N_l$ of $l$ such that $N_l \subset N$.
+By this hypothesis we see that every neighborhood of $l$ contains a point $s$ in $E$.
+Thus $s \in N_l \subset N$ and this contradicts the fact that $N\cap E$ is empty. 
+Therefore, $N$ intersects neither $E$ nor $E'$.
+
+Since $(N \cap E)\cup(N \cap E')=\varnothing$, we obtain $N \cap (E \cup E') = N \cap \overline{E} = \varnothing$. 
+Thus the complement of $\overline{E}$ contains $N$, hence it is open. 
+This proves (a).
+\item[(b)] If $E=\overline{E}$, (a) implies that $E$ is closed. If $E$ is closed, then $E' \subset E$, hence $\overline{E}=E$.
+\item[(c)] We first show that if $E \subset F$ then $E' \subset F'$.
+Let $p \in E'$.
+If $N$ is any neighborhood of $p$ then there exists a point $q \neq p$ such that $q \in E \subset F$.
+Hence, every neighborhood $N$ of $p$ contains a point $q \neq p$ such that $q \in F$. 
+Therefore, $p$ is a limit point of $F$ and $p \in F'$.
+
+Let us prove (c) now. 
+Suppose $F \subset X$ is closed and $E \subset F$. 
+Since $E' \subset F'$ and $F' \subset F$, we see that $E' \subset F$, and it follows that $\overline{E}=E \cup E' \subset F$.
+\end{proof}
