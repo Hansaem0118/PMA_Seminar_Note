@@ -25,7 +25,7 @@ Occasionally we shall also encounter ``half-open intervals'' $[a,b)$ and $(a,b]$
 If $a_i<b_i$ for $i=1, \ldots k$, the set of all points $\mathbf{x}=(x_1, \dots , x_k)$ in $\R^k$ whose coordinates satisfy the inequalities $a_i \leq x_i \leq b_i$ ($1 \leq i \leq k$) is called a \emph{k-cell}.
 Thus a 1-cell is an interval, a 2-cell is a rectangle, etc.
 
-If $\mathbf{x} \in \R^k$ and $r>0$, the \emph{open} (or \emph{closed}) \emph{ball} $B$ with center at $\mathbf{x}$ and radius $r$ is defined to be the set of all $\mathbf{y} \in \R^k$ such that $|\mathbf{y}-\mathbf{x}|<r$ (or $|\mathbf{y}-\mathbf{x}| \leq r$).
+If $\mathbf{x} \in \R^k$ and $r>0$, the \emph{open} (or \emph{closed}) \emph{ball $B$} with center at $\mathbf{x}$ and radius $r$ is defined to be the set of all $\mathbf{y} \in \R^k$ such that $|\mathbf{y}-\mathbf{x}|<r$ (or $|\mathbf{y}-\mathbf{x}| \leq r$).
 
 We call a set $E \subset \R^k$ \emph{convex} if
 \[
@@ -314,6 +314,61 @@ and since $V_{\alpha} \subset G_{\alpha}$, \eqref{eq:open_cover_relative_to_Y} i
 
 This completes the proof.
 \end{proof}
+\begin{theorem}\label{thm:compact_implies_closed}
+    Compact subsets of metric spaces are closed.
+\end{theorem}
+\begin{proof}
+Let $K$ be a compact subset of a metric space $X$.
+We shall prove that complement of $K$ is an open subset of $X$.
+
+Suppose $p \in X$, $p \notin K$.
+If $q \in K$, let $V_q$ and $W_q$ be neighborhoods of $p$ and $q$, respectively, of radius less than $\frac{1}{2}d(p,q)$.
+Notice that the collection of the neighborhoods $W_q$ of the points $q \in K$ is an open cover of $K$.
+Since $K$ is compact, there are finitely many points $q_1, \ldots, q_n$ in $K$ such that
+\[
+K \subset W_{q_1} \cup \cdots \cup W_{q_n}=W.
+\]
+If $p,q \in X$ then $d(p,q) \leq d(p,x)+d(x,q)$ for any $x \in X$. 
+Hence, at least one of $d(p,x)$ and $d(x,q)$ is not less than $\frac{1}{2}d(p,q)$.
+Thus, $V_{q_i}$ and $W_{q_i}$ are disjoint for $i=1,\ldots,n$.
+It follows that if $V=V_{q_1}\cap \cdots \cap V_{q_n}$, then $V$ is a neighborhood of $p$ which does not intersect $W$.
+Hence $V \subset K^c$, so that $p$ is an interior point of $K^c$. The theorem follows.
+\end{proof}
+
+\begin{theorem}\label{thm:closed_implies_compact}
+Closed subsets of compact sets are compact.
+\end{theorem}
+\begin{proof}
+Since Rudin's proof is already explicit, we omit it here.
+\end{proof}
+\begin{corollary}
+    If $F$ is closed and $K$ is compact, then $F \cap K$ is compact.
+\end{corollary}
+\begin{proof}
+    Theorems \ref{thm:topological_space_property}(b) and \ref{thm:compact_implies_closed} shows that $F \cap K$ is closed;
+    since $F \cap K \subset K$, theorem \ref{thm:closed_implies_compact} shows that $F \cap K$ is compact.
+\end{proof}
+\begin{theorem}
+If $\{K_{\alpha}\}$ is a collection of compact subsets of a metric space $X$ such that the intersection of every finite subcollection of $\{K_{\alpha}\}$ is nonempty, then $\bigcap K_{\alpha}$ is nonempty.
+\end{theorem}
+
+\begin{proof}
+Fix a menber $K_1$ of $\{K_{\alpha}\}$ and put $G_{\alpha}=K_{\alpha}^c$. 
+Assume that no point of $K_1$ belongs to every $K_{\alpha}$.
+Then for any $x \in K_1$, there exists an $\alpha$ such that $x \in G_{\alpha}$.
+Since every $K_{\alpha}$ is closed by Theorem \ref{thm:compact_implies_closed}, every $G_{\alpha}$ is open.
+Hence, the sets $G_{\alpha}$ form an open cover of $K_1$;
+and since $K_1$ is compact, there are finitely many indices $\alpha_1, \ldots, \alpha_n$ such that $K_1 \subset G_{\alpha_1} \cup \cdots \cup G_{\alpha_n}$.
+But this means that 
+\[
+K_1 \cap K_{\alpha_1} \cap \cdots \cap K_{\alpha_n}
+\]
+is empty, in contradiction to our hypothesis.
+\end{proof}
+\begin{corollary}
+If $\{K_n\}$ is a sequence of nonempty compact sets such that $K_n \supset K_{n+1}$ ($n=1, 2, 3, \ldots$), then $\bigcap_{1}^{\infty}K_n$ is not empty.
+\end{corollary}
+
 \subsection*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
