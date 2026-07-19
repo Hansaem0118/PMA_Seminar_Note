@@ -427,7 +427,63 @@ We conclude that $E$ and $\overline{E}$ has the same limit points.
 
 Finally, let $E=\left\{\frac{1}{n} \mid n \in \N\right\}$. It is clear that $E' = \{0\}$ but there is no limit point of $E'$. Hence it is possible that $E$ and $E'$ have different limit points.
 \end{proof}
+\begin{exercise}
+Let $A_1, A_2, A_3, \ldots$ be subsets of a metric space.
+\begin{enumerate}
+    \item[(a)] If $B_n = \bigcup_{i=1}^nA_i$, prove that $\overline{B_n} = \bigcup_{i=1}^n \overline{A_i}$, for $n= 1, 2, 3, \ldots$.
+    \item[(b)] If $B= \bigcup_{i=1}^{\infty} A_i$, prove that $\overline{B} \supset \bigcup_{i=1}^{\infty}\overline{A_i}$.
 
+Show, by an example, that this inclusion can be proper.
+\end{enumerate}
+\end{exercise}
+\begin{proof}
+To prove (a), by mathematical induction, it suffices to prove that $\overline{A \cup B} = \overline{A} \cup \overline{B}$. 
+We need to prove that $(A \cup B)'=A' \cup B'$.
+
+Suppose $p \in (A \cup B)'$. 
+Assume, for contradiction, that $p$ is neither a limit point of $A$ nor $B$.
+Then there are neighborhoods $N_1$ and $N_2$ of $p$ such that $N_1 \cap (A \setminus \{p\})$ and $N_2 \cap (B \setminus \{p\})$ are empty, respectively.
+
+Let $N = N_1 \cap N_2$.
+Then we have
+\begin{align*}
+    [N \cap (A \setminus \{p\})] \cup [N \cap (B \setminus \{p\})] &= N \cap [(A \setminus \{p\}) \cup (B \setminus \{p\})] \\
+    &=N \cap [(A \cup B) \setminus \{p\}] = \varnothing.
+\end{align*}
+This contradicts our assumption. Therefore, $(A \cup B)' \subset A' \cup B'$.
+
+Conversely, suppose $p \in A' \cup B'$.
+Then $p \in A'$ or $p \in B'$.
+If $p \in A'$, then every neighborhood of $p$ contains a point $q \neq p$ such that $q \in A \subset A \cup B$, hence $p \in (A \cup B)'$.
+Similarly, if $p \in B'$ then $p$ is a limit point of $A \cup B$, hence $p \in (A \cup B)'$. 
+This proves $A' \cup B' \subset (A \cup B)'$.
+
+We have shown that $(A \cup B)' \subset A' \cup B'$ and $A' \cup B' \subset (A \cup B)'$. 
+Hence $(A \cup B)'=A' \cup B'$ and it follows that 
+\begin{align*}
+    \overline{A \cup B}&=(A \cup B) \cup (A \cup B)'=(A \cup B) \cup (A' \cup B')\\
+    &=(A \cup A') \cup (B \cup B') = \overline{A} \cup \overline{B}.
+\end{align*}
+This is the desired result.
+
+Next, let us prove (b). 
+Suppose $p \in \bigcup_{i=1}^{\infty} \overline{A_i}$.
+Then $p \in \overline{A_i}$ for some positive integer $i$.
+If $p \in A_i$ then $p \in B$.
+If $p \in A_i'$ then every neighborhood of $p$ contains a point $q \neq p$ such that $q \in A_i \subset \bigcup_{i=1}^{\infty}A_i=B$.
+Therefore, $p$ is a limit point of $B$ and $p \in B'$. 
+
+Hence, if $p \in \bigcup_{i=1}^{\infty} \overline{A_i}$ then $p \in B$ or $p \in B'$. This proves $\bigcup_{i=1}^{\infty}\overline{A_i} \subset \overline{B}$.
+
+Finally, we show that this inclusion can be proper.
+For each $n \in \N$, define
+\[
+A_n=\left\{x \in \R \mid \frac{1}{n}<x \right\}.
+\]
+Then we see that $B$ is the set of positive real numbers.
+Observe that $0$ is not a limit point of $A_n$ and $0 \notin A_n$ for $n=1,2,3, \ldots$.
+It follows that $0 \notin \bigcup_{i=1}^{\infty}\overline{A_i}$. But it is clear that $0 \in \overline{B}$.
+\end{proof}
 \begin{exercise}
 Let $K \subset \R^1$ consist of $0$ and the numbers $1/n$, for $n=1,2,3,\ldots$. 
 Prove that $K$ is compact directly from the definition (without using the Heine-Borel theorem).
@@ -453,3 +509,4 @@ K \subset G_{\alpha_0} \cup G_{\alpha_1} \cup \cdots \cup G_{\alpha_k}.
 
 We conclude that $K$ is compact.
 \end{proof}
+
