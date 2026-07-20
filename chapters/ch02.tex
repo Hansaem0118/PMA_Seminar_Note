@@ -1,3 +1,4 @@
+\clearpage
 \section{Basic Topology}
 \subsection{Finite, Countable, and Uncountable Sets}
 We omit this section here.
@@ -111,7 +112,7 @@ We conclude that $E$ is an open set.
 Suppose there is a neighborhood $N$ of $p$ which contains only a finite number of points of $E$.
 Let $q_1, \ldots , q_n$ be those points of $N \cap E$, which are distinct from $p$, and put
 \[
-r=\min_{1 \leq m \leq n} d(p,q_m) >0 
+r=\min_{1 \leq m \leq n} d(p,q_m) >0.
 \]
 Then $d(p,q_m) \geq r$ for $m=1, \ldots, n$ and hence all the points $q_m$ are not in the neighborhood $N_r(p)$.
 Since 
@@ -316,7 +317,7 @@ This completes the proof.
 \end{theorem}
 \begin{proof}
 Let $K$ be a compact subset of a metric space $X$.
-We shall prove that complement of $K$ is an open subset of $X$.
+We shall prove that the complement of $K$ is an open subset of $X$.
 
 Suppose $p \in X$, $p \notin K$.
 If $q \in K$, let $V_q$ and $W_q$ be neighborhoods of $p$ and $q$, respectively, of radius less than $\frac{1}{2}d(p,q)$.
@@ -340,14 +341,14 @@ Closed subsets of compact sets are compact.
     If $F$ is closed and $K$ is compact, then $F \cap K$ is compact.
 \end{corollary}
 \begin{proof}
-    Theorems \ref{thm:topological_space_property}(b) and \ref{thm:compact_implies_closed} shows that $F \cap K$ is closed;
-    since $F \cap K \subset K$, theorem \ref{thm:closed_implies_compact} shows that $F \cap K$ is compact.
+    Theorems \ref{thm:topological_space_property}(b) and \ref{thm:compact_implies_closed} show that $F \cap K$ is closed;
+    since $F \cap K \subset K$, Theorem \ref{thm:closed_implies_compact} shows that $F \cap K$ is compact.
 \end{proof}
 \begin{theorem}
 If $\{K_{\alpha}\}$ is a collection of compact subsets of a metric space $X$ such that the intersection of every finite subcollection of $\{K_{\alpha}\}$ is nonempty, then $\bigcap K_{\alpha}$ is nonempty.
 \end{theorem}
 \begin{proof}
-Fix a menber $K_1$ of $\{K_{\alpha}\}$ and put $G_{\alpha}=K_{\alpha}^c$. 
+Fix a member $K_1$ of $\{K_{\alpha}\}$ and put $G_{\alpha}=K_{\alpha}^c$. 
 Assume that no point of $K_1$ belongs to every $K_{\alpha}$.
 Then for any $x \in K_1$, there exists an $\alpha$ such that $x \in G_{\alpha}$.
 Since every $K_{\alpha}$ is closed by Theorem \ref{thm:compact_implies_closed}, every $G_{\alpha}$ is open.
@@ -463,7 +464,7 @@ Since $q$ is a limit point of $E$, $N_q$ contains a point $s \neq q$ such that $
 Hence, $N$ contains a point $s \neq p$ (since $p \notin N_q$) such that $s \in E$.
 Since $N$ was arbitrary, $p$ is a limit point of $E$.
 
-We conclude that $E$ and $\overline{E}$ has the same limit points.
+We conclude that $E$ and $\overline{E}$ have the same limit points.
 
 Finally, let $E=\left\{\frac{1}{n} \mid n \in \N\right\}$. It is clear that $E' = \{0\}$ but there is no limit point of $E'$. Hence it is possible that $E$ and $E'$ have different limit points.
 \end{proof}
