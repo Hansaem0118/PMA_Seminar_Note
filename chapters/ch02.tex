@@ -257,7 +257,7 @@ Suppose $F \subset X$ is closed and $E \subset F$.
 Since $E' \subset F'$ and $F' \subset F$, we see that $E' \subset F$, and it follows that $\overline{E}=E \cup E' \subset F$.
 \end{enumerate}
 \end{proof}
-\begin{theorem}
+\begin{theorem} \label{thm:supremum_exist_in_closure}
     Let $E$ be a nonempty set of real numbers which is bounded above. 
     Let $y = \sup E$. 
     Then $y \in \overline{E}$.
@@ -422,6 +422,62 @@ Thus $S$ has no limit point in $E$; hence $E$ must be closed if (c) holds.
 \begin{theorem}[Weierstrass]
 Every bounded infinite subset of $\R^k$ has a limit point in $\R^k$.
 \end{theorem}
+
+\subsection{Perfect Sets}
+We omit this section.
+
+\subsection{Connected Sets}
+\begin{definition}
+Two subsets $A$ and $B$ of a metric space $X$ are said to be \emph{separated} if both $A \cap \overline{B}$ and $\overline{A} \cap B$ are empty.
+    
+A set $E \subset X$ is said to be \emph{connected} if $E$ is \emph{not} a union of two nonempty separated sets.
+\end{definition}
+
+\begin{theorem}
+A subset $E$ of the real line $\R^1$ is connected if and only if it has the following property:
+If $x \in E$, $y \in E$, and $x<z<y$, then $z \in E$.
+\end{theorem}
+\begin{proof}
+If there exist $x \in E$, $y \in E$, and some $z \in (x,y)$ such that $z \notin E$, then $E=A_z \cup B_z$ where
+\[
+A_z = E \cap (-\infty, z), \qquad B_z=E\cap(z,\infty).
+\]
+Since $x \in A_z$ and $y \in B_z$, $A_z$ and $B_z$ are nonempty.
+Since $A_z \subset (-\infty, z)$, and $B_z \subset (z, \infty)$, we have
+\[
+\overline{A_z} \subset (-\infty, z] \text{ and } \overline{B_z} \subset [z, \infty].
+\]
+Thus, both $\overline{A_z} \cap B_z$ and $A_z \cap \overline{B_z}$ are empty, and it follows that $A_z$ and $B_z$ are separated.
+Hence $E$ is not connected.
+
+To prove the converse,  suppose $E$ is not connected.
+Then there are nonempty separated sets $A$ and $B$ such that $A \cup B = E$.
+Pick $x \in A$, $y \in B$, and assume (without loss of generality) that $x<y$.
+Define
+\[
+z= \sup (A \cap [x,y]).
+\]
+
+By Theorem \ref{thm:supremum_exist_in_closure}, $z \in \overline{A \cap [x,y]} \subset \overline{A}$; hence $z \notin B$.
+Since $A \cap [x,y] \subset [x,y]$, we have
+\[
+z = \sup (A \cap [x,y])\leq \sup [x,y] = y,
+\]
+and it follows that $x \leq z < y$.
+
+If $z \notin A$, it follows that $x<z<y$ and $z \notin E$.
+
+If $z \in A$, then $z \notin \overline{B}$, hence $z$ is not a limit point of $B$.
+Thus, there exists an $r >0$ such that $(z-r,z+r) \cap B = \varnothing$.
+Since $y \in B$, we have $y \leq z-r$ or $y \geq z+r$.
+Since $z<y$, it follows that 
+\[
+z< z+\frac{r}{2} < z+r \leq y.
+\]
+Hence there exists $z_1$ such that $z<z_1<y$ and $z_1 \notin B$ (take $z_1 = z+r/2$).
+If $z_1 \in A$ then $z_1 \in A \cap [x,y]$, hence $z_1=z+r/2 \leq z$, a contradiction.
+Therefore, $x<z_1<y$ and $z_1 \notin E$.
+\end{proof}
 \subsection*{Exercises}
 \addcontentsline{toc}{subsection}{Exercises}
 
